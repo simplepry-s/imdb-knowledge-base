@@ -8,8 +8,10 @@ import { Route } from "react-router-dom";
 const App = props => {
   return (
     <div>
-      <Route path="/" component={Welcome} />
-      <Route path="/movies" component={Home} />
+      <Route path="/" exact component={Welcome}  />
+      <Route path="/movies" exact component={Home} />
+      <Route path="*" exact component={Welcome} /> 
+
     </div>
   );
 };

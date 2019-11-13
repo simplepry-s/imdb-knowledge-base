@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "./";
+var randomWords = require("random-words");
 
 const Search = props => {
   const [search, setSearch] = useState("");
@@ -17,19 +18,27 @@ const Search = props => {
     clearSearch();
   };
 
+  const randomSearch = e => {
+    e.preventDefault();
+    const random = randomWords();
+    setSearch(random)
+    props.search(random);
+    clearSearch();
+  };
   return (
     <form className="search">
       <Input
         classname="search-input"
         name="search"
         type="text"
-        placeholder="enter search"
+        placeholder="find it!"
         value={search}
         onChange={handleChange}
         required
         label="search"
       />
       <input onClick={submitSearch} type="submit" value="SEARCH" />
+      <input onClick={randomSearch} type="submit" value="RANDOM" />
     </form>
   );
 };

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Header, Movie, Search } from "../components";
+import { Header, Movie, Search, Loading } from "../components";
 import axios from "axios";
 
-const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
+
+const MOVIE_API_URL = "https://www.omdbapi.com/?s=captain&apikey=bd96c767";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ const Home = () => {
 
     try {
       const result = await axios(
-        `https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`
+        `https://www.omdbapi.com/?s=${searchValue}&apikey=bd96c767`
       );
       if (result.data.Error) {
         setErrorMessage(result.data.Error);
@@ -55,9 +56,7 @@ const Home = () => {
       <Search search={search} />
       <div className="movies">
         {loading && !errorMessage ? (
-          <div className="loading">
-            <span>loading...</span>
-          </div>
+          <Loading type="bars" color="#FF5733" height={667} width={375} />
         ) : errorMessage ? (
           <div className="errorMessage">{errorMessage}</div>
         ) : (

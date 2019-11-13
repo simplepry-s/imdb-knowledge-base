@@ -1,0 +1,25 @@
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+  .loading {
+    justify-content: center;
+  }
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+}
+
+.App {
+  text-align: center;
+}
+
+.spinner {
+  height: 80px;
+  margin: auto;
+}
