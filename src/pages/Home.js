@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Header, Movie, Search, Loading } from "../components";
+import { Header, Movie, Loading } from "../components";
 import axios from "axios";
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=captain&apikey=bd96c767";
@@ -13,7 +13,6 @@ const Home = props => {
   const fetchData = async () => {
     try {
       const result = await axios(MOVIE_API_URL);
-      console.log(result);
       setMovies(result.data.Search);
       setLoading(false);
     } catch (error) {
@@ -53,7 +52,7 @@ const Home = props => {
 
   return (
     <div className="App">
-      <Header location={location} search={search} text="iMDb Knowledge Base By Simpleprys" />
+      <Header location={location} search={search} text="iMDb Knowledge Base" />
       <div className="movies">
         {loading && !errorMessage ? (
           <Loading type="bars" color="#999999" height={667} width={375} />

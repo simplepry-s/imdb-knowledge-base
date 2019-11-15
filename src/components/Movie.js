@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 // import animations from "../config/animations/config";
 import { createRenderer } from "fela";
 import { createComponent, Provider } from "react-fela";
 import { ModalMovie } from "./";
-import axios from "axios";
 
 import {
   bounceIn,
@@ -61,9 +60,7 @@ const Movie = props => {
     border: "1px solid green"
   };
 
-  let API_BY_IMDB_ID = "http://www.omdbapi.com/?i=";
 
-  const getDetail = () => {};
 
   const defaultStyle = {};
   const style = movie.Poster === "N/A" ? nonPosterStyle : defaultStyle;

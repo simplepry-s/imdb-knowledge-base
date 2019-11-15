@@ -35,7 +35,7 @@ const ModalMovie = props => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   const handleClickIMDB = () => {
     window.open(LINK_IMDB + detail.imdbID, "_blank");

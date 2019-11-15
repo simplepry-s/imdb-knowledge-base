@@ -1,14 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Navbar,
-  Nav,
-  Form,
-  Button,
-  FormControl,
-  NavDropdown
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
+// import { Link } from "react-router-dom";
 import { Search } from "./";
 
 const Header = props => {
@@ -23,15 +16,15 @@ const Header = props => {
   };
   return (
     <Navbar bg="dark" expand="lg">
-      <Navbar.Brand style={{color:'white'}}>{text}</Navbar.Brand>
+      <Navbar.Brand style={{ color: "white" }}>{text}</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link>
+          {/* <Nav.Link>
             <Link to="/" style={{ color: "#FFF" }}>
               MOVIES
             </Link>
-          </Nav.Link>
+          </Nav.Link> */}
         </Nav>
         {location.pathname === "/" ? renderSearch() : null}
       </Navbar.Collapse>

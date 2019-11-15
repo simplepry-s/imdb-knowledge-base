@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form, FormControl } from "react-bootstrap";
+import { FormControl } from "react-bootstrap";
 
 const Input = props => {
   const {
@@ -13,23 +13,22 @@ const Input = props => {
     // disabled,
     // errorMessage,
     // label,
-    classname
   } = props;
 
   return (
-    <Form inline>
       <FormControl
         type="text"
         placeholder="Search"
         className="mr-md-2"
+        // eslint-disable-next-line react/jsx-no-duplicate-props
         type={type}
+        // eslint-disable-next-line react/jsx-no-duplicate-props
         placeholder={placeholder}
         name={name}
         required={required}
         value={value}
         onChange={e => onChange(e.target.value)}
       />
-    </Form>
   );
 };
 
