@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "./";
+import { Button } from "react-bootstrap";
+
 var randomWords = require("random-words");
 
 const Search = props => {
@@ -21,7 +23,7 @@ const Search = props => {
   const randomSearch = e => {
     e.preventDefault();
     const random = randomWords();
-    setSearch(random)
+    setSearch(random);
     props.search(random);
     clearSearch();
   };
@@ -37,8 +39,24 @@ const Search = props => {
         required
         label="search"
       />
-      <input onClick={submitSearch} type="submit" value="SEARCH" />
-      <input onClick={randomSearch} type="submit" value="RANDOM" />
+      <div className="flex-button">
+        <Button
+          className="search-button"
+          onClick={submitSearch}
+          variant="outline-light"
+          disabled={search ? false : true}
+        >
+          SEARCH
+        </Button>
+
+        <Button
+          className="random-button"
+          onClick={randomSearch}
+          variant="outline-light"
+        >
+          RANDOM
+        </Button>
+      </div>
     </form>
   );
 };

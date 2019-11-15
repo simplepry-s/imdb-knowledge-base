@@ -74,7 +74,7 @@ const Movie = props => {
       <BouncingDiv>
         <div className="movie" onClick={() => handleShow()}>
           <div>
-            <img
+            <img 
               style={style}
               width="200px"
               alt={`${movie.title}`}

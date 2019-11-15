@@ -20,7 +20,13 @@ const ModalMovie = props => {
     try {
       const result = await axios.get(API);
       setDetail(result.data);
-      setStar({ ...star, rating: parseFloat(result.data.imdbRating) / 2 });
+      setStar({
+        ...star,
+        rating:
+          result.data.imdbRating === "N/A"
+            ? 0
+            : parseFloat(result.data.imdbRating) / 2
+      });
     } catch (error) {
       console.log(error);
       setErrorMessage(error.toString());

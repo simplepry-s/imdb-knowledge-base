@@ -4,10 +4,8 @@ import PropTypes from "prop-types";
 
 const Loading = props => {
   const { type, color, height, width } = props;
-  console.log(props);
   return (
     <div>
-      hihihi
       <ReactLoading type={type} color={color} height={height} width={width} />
     </div>
   );

@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 
 const Rating = props => {
   const { star } = props;
-  console.log('wow',props)
   return (
     <div>
       <StarRatings

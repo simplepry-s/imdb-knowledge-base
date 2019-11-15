@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Form, FormControl } from "react-bootstrap";
 
 const Input = props => {
   const {
@@ -16,15 +17,19 @@ const Input = props => {
   } = props;
 
   return (
-    <input
-      className={classname}
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      required={required}
-      value={value}
-      onChange={e => onChange(e.target.value)}
-    />
+    <Form inline>
+      <FormControl
+        type="text"
+        placeholder="Search"
+        className="mr-md-2"
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        required={required}
+        value={value}
+        onChange={e => onChange(e.target.value)}
+      />
+    </Form>
   );
 };
 

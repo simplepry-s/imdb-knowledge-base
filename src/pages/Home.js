@@ -4,7 +4,8 @@ import axios from "axios";
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=captain&apikey=bd96c767";
 
-const Home = () => {
+const Home = props => {
+  const { location } = props;
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -12,7 +13,7 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const result = await axios(MOVIE_API_URL);
-      console.log(result)
+      console.log(result);
       setMovies(result.data.Search);
       setLoading(false);
     } catch (error) {
@@ -52,11 +53,10 @@ const Home = () => {
 
   return (
     <div className="App">
-      <Header text="Have you seen it?" />
-      <Search search={search} />
+      <Header location={location} search={search} text="iMDb Knowledge Base By Simpleprys" />
       <div className="movies">
         {loading && !errorMessage ? (
-          <Loading type="bars" color="#FF5733" height={667} width={375} />
+          <Loading type="bars" color="#999999" height={667} width={375} />
         ) : errorMessage ? (
           <div className="errorMessage">{errorMessage}</div>
         ) : (
