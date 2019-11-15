@@ -1,21 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+import MyRouters from "./routers/MyRouters";
 import "./styles/index.scss";
-import { Search } from "./components";
-import { Home, Welcome } from "./pages";
-import { Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = props => {
-  return (
-    <div>
-      <Route path="/" exact component={Welcome}  />
-      <Route path="/movies" exact component={Home} />
-      <Route path="*" exact component={Welcome} /> 
-
-    </div>
-  );
+  return <MyRouters/>;
 };
 
-App.propTypes = {};
 
 export default App;

@@ -9,6 +9,8 @@ const Header = props => {
   );
 };
 
-Header.propTypes = {};
+Header.propTypes = {
+  text:PropTypes.string.isRequired
+};
 
 export default Header;

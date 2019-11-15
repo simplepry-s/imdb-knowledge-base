@@ -9,9 +9,9 @@ const Input = props => {
     required,
     value,
     onChange,
-    disabled,
-    errorMessage,
-    label,
+    // disabled,
+    // errorMessage,
+    // label,
     classname
   } = props;
 

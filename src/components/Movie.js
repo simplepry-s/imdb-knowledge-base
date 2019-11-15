@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import animations from "../config/animations/config";
+// import animations from "../config/animations/config";
 import { createRenderer } from "fela";
 import { createComponent, Provider } from "react-fela";
+import { ModalMovie } from "./";
+import axios from "axios";
 
 import {
   bounceIn,
@@ -32,11 +34,10 @@ const animate = [
   swing
 ];
 
+
 const rand = items => {
   return items[Math.floor(Math.random() * items.length)];
 };
-
-console.log("hey", rand(animate));
 
 const mapStylesToProps = ({ background, height, width }, renderer) => ({
   animationName: renderer.renderKeyframe(() => rand(animate), {}),
@@ -53,10 +54,16 @@ const default_image =
 
 const Movie = props => {
   const { movie } = props;
-
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(!show);
+  
   const nonPosterStyle = {
     border: "1px solid green"
   };
+
+  let API_BY_IMDB_ID = "http://www.omdbapi.com/?i=";
+
+  const getDetail = () => {};
 
   const defaultStyle = {};
   const style = movie.Poster === "N/A" ? nonPosterStyle : defaultStyle;
@@ -65,11 +72,7 @@ const Movie = props => {
   return (
     <Provider renderer={createRenderer()}>
       <BouncingDiv>
-        <div className="movie">
-          {/* <p style={{ fontSize: "13px" ,width:'100%'}}>
-            {movie.Title}
-          </p> */}
-
+        <div className="movie" onClick={() => handleShow()}>
           <div>
             <img
               style={style}
@@ -79,6 +82,7 @@ const Movie = props => {
             ></img>
           </div>
         </div>
+        <ModalMovie movie={movie} handleShow={handleShow} show={show} />
       </BouncingDiv>
     </Provider>
   );

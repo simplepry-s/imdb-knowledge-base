@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Header, Movie, Search, Loading } from "../components";
 import axios from "axios";
 
-
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=captain&apikey=bd96c767";
 
 const Home = () => {
@@ -13,6 +12,7 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const result = await axios(MOVIE_API_URL);
+      console.log(result)
       setMovies(result.data.Search);
       setLoading(false);
     } catch (error) {
